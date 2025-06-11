@@ -4,7 +4,7 @@ using Projeto2.Models;
 
 namespace Projeto2.Repositorio
 {
-    public class UsuarioRespositorio (IConfiguration configuration)
+    public class UsuarioRepositorio (IConfiguration configuration)
     {
         private readonly string _conexaoMySQL = configuration.GetConnectionString("ConexaoMySQL");
         public Usuario ObterUsuario(string email)
@@ -13,7 +13,7 @@ namespace Projeto2.Repositorio
             {
                 conexao.Open();
                 MySqlCommand cmd = new("select * from Usuarios where Email = @Email", conexao);
-                cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = e mail;
+                cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = email;
 
                 using (MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection))
                 {
