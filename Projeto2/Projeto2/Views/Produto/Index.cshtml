@@ -1,5 +1,54 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<Projeto2.Models.Produto>
 @{
+    <p>
+        <a asp-controller="Produto" asp-action="Index">Cadastra Produto</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Preco)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Qtd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Preco)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Qtd)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Descricao)
+                    </th>
+                    <td>
+                        @Html.ActionLink("Editar", "EditarProduto", new { id = item.Id }) |
+                        @Html.ActionLink("Excluir", "ExcluirProduto", new { id = item.Id },
+                             new { onclick = "return confirm('Deseja realmente Excluir este item?');" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }

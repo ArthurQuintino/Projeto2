@@ -7,6 +7,7 @@ builder.Services.AddControllersWithViews();
 
 // adicionando a injeção de dependência
 builder.Services.AddScoped<UsuarioRepositorio>(); //repositorio do usuario
+builder.Services.AddScoped<ProdutoRepositorio>();
 
 var app = builder.Build();
 
